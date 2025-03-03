@@ -26,14 +26,12 @@ JOIN dim_customers c ON f.CustomerID = c.CustomerID
 GROUP BY c.CustomerID, c.FirstName, c.LastName
 ORDER BY TotalSpent DESC;
 
-SELECT 
-  c.Region, 
-  DATE_FORMAT(f.Timestamp, '%Y-%m') AS Month, 
-  SUM(f.SalesAmount) AS MonthlySales
+SELECT c.Region, SUM(f.SalesAmount) AS RegionSales
 FROM fact_sales f
 JOIN dim_customers c ON f.CustomerID = c.CustomerID
-GROUP BY c.Region, DATE_FORMAT(f.Timestamp, '%Y-%m')
-ORDER BY c.Region, Month;
+GROUP BY c.Region
+ORDER BY RegionSales DESC;
+
 
 SELECT SUM(SalesAmount) AS TotalSalesRevenue
 FROM fact_sales;
@@ -60,3 +58,13 @@ GROUP BY c.CustomerID, c.FirstName, c.LastName
 ORDER BY LifetimeRevenue DESC;
 
 SELECT * FROM fact_sales;
+
+SELECT SUM(SalesAmount) AS TotalSales FROM fact_sales;
+
+SELECT AVG(SalesAmount) AS AverageTransactionValue
+FROM fact_sales;
+
+SELECT 
+    SUM(f.Quantity * p.UnitCost) AS COGS
+FROM fact_sales f
+JOIN dim_products p ON f.ProductID = p.ProductID;
