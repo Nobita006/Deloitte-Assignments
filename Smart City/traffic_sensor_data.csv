@@ -1,0 +1,501 @@
+Sensor_ID,Location,Sensor_Type,Installation_Date,Status,Vehicle_Count,Average_Speed,Congestion_Level
+SEN0001,Downtown,Pollution Sensor,01-01-2023,Active,801,21,Moderate
+SEN0002,Downtown,Traffic Camera,02-01-2023,Inactive,139,64,Moderate
+SEN0003,Suburbs,Traffic Camera,03-01-2023,Inactive,613,37,High
+SEN0004,Industrial Area,Traffic Camera,04-01-2023,Inactive,226,52,Low
+SEN0005,Highway,Speed Sensor,05-01-2023,Active,843,49,High
+SEN0006,Industrial Area,Speed Sensor,06-01-2023,Active,194,22,Moderate
+SEN0007,Industrial Area,Pollution Sensor,07-01-2023,Active,523,73,Moderate
+SEN0008,Industrial Area,Speed Sensor,08-01-2023,Active,188,88,Moderate
+SEN0009,Industrial Area,Pollution Sensor,09-01-2023,Active,975,44,Moderate
+SEN0010,Downtown,Pollution Sensor,10-01-2023,Active,515,81,High
+SEN0011,Residential Zone,Pollution Sensor,11-01-2023,Inactive,741,55,High
+SEN0012,Industrial Area,Pollution Sensor,12-01-2023,Inactive,656,91,Low
+SEN0013,Suburbs,Speed Sensor,13-01-2023,Inactive,164,107,High
+SEN0014,Highway,Speed Sensor,14-01-2023,Active,335,78,Low
+SEN0015,Residential Zone,Traffic Camera,15-01-2023,Inactive,606,91,Moderate
+SEN0016,Downtown,Pollution Sensor,16-01-2023,Active,572,29,Low
+SEN0017,Highway,Traffic Camera,17-01-2023,Inactive,86,23,High
+SEN0018,Highway,Speed Sensor,18-01-2023,Active,782,108,Low
+SEN0019,Suburbs,Pollution Sensor,19-01-2023,Active,656,98,High
+SEN0020,Highway,Pollution Sensor,20-01-2023,Inactive,421,96,Low
+SEN0021,Residential Zone,Pollution Sensor,21-01-2023,Inactive,813,101,Low
+SEN0022,Highway,Traffic Camera,22-01-2023,Inactive,111,39,High
+SEN0023,Downtown,Traffic Camera,23-01-2023,Active,874,30,Low
+SEN0024,Suburbs,Pollution Sensor,24-01-2023,Active,481,98,Moderate
+SEN0025,Highway,Speed Sensor,25-01-2023,Inactive,998,80,Moderate
+SEN0026,Industrial Area,Pollution Sensor,26-01-2023,Inactive,304,78,Moderate
+SEN0027,Downtown,Pollution Sensor,27-01-2023,Inactive,367,85,High
+SEN0028,Downtown,Traffic Camera,28-01-2023,Active,895,82,Moderate
+SEN0029,Suburbs,Pollution Sensor,29-01-2023,Inactive,687,53,Moderate
+SEN0030,Suburbs,Pollution Sensor,30-01-2023,Active,551,112,Moderate
+SEN0031,Highway,Traffic Camera,31-01-2023,Inactive,104,64,Low
+SEN0032,Highway,Speed Sensor,01-02-2023,Active,770,54,Low
+SEN0033,Suburbs,Pollution Sensor,02-02-2023,Inactive,666,71,Moderate
+SEN0034,Highway,Traffic Camera,03-02-2023,Active,571,93,Low
+SEN0035,Suburbs,Traffic Camera,04-02-2023,Inactive,399,79,Low
+SEN0036,Downtown,Speed Sensor,05-02-2023,Inactive,667,26,Low
+SEN0037,Residential Zone,Speed Sensor,06-02-2023,Inactive,274,92,Low
+SEN0038,Industrial Area,Traffic Camera,07-02-2023,Active,546,37,Low
+SEN0039,Residential Zone,Pollution Sensor,08-02-2023,Inactive,786,67,Moderate
+SEN0040,Suburbs,Speed Sensor,09-02-2023,Active,150,32,Low
+SEN0041,Suburbs,Speed Sensor,10-02-2023,Inactive,689,24,Moderate
+SEN0042,Suburbs,Traffic Camera,11-02-2023,Inactive,314,69,Low
+SEN0043,Industrial Area,Speed Sensor,12-02-2023,Inactive,556,117,Moderate
+SEN0044,Residential Zone,Speed Sensor,13-02-2023,Inactive,376,57,Low
+SEN0045,Highway,Traffic Camera,14-02-2023,Inactive,223,71,High
+SEN0046,Highway,Speed Sensor,15-02-2023,Inactive,881,38,Moderate
+SEN0047,Downtown,Speed Sensor,16-02-2023,Inactive,979,61,Low
+SEN0048,Highway,Traffic Camera,17-02-2023,Inactive,444,111,High
+SEN0049,Suburbs,Pollution Sensor,18-02-2023,Inactive,472,84,Low
+SEN0050,Suburbs,Pollution Sensor,19-02-2023,Active,116,46,Moderate
+SEN0051,Suburbs,Speed Sensor,20-02-2023,Inactive,697,88,High
+SEN0052,Suburbs,Speed Sensor,21-02-2023,Inactive,276,80,Moderate
+SEN0053,Suburbs,Speed Sensor,22-02-2023,Active,878,49,Moderate
+SEN0054,Industrial Area,Traffic Camera,23-02-2023,Active,827,42,Moderate
+SEN0055,Suburbs,Speed Sensor,24-02-2023,Active,871,45,Low
+SEN0056,Downtown,Traffic Camera,25-02-2023,Inactive,715,20,High
+SEN0057,Highway,Speed Sensor,26-02-2023,Inactive,636,62,High
+SEN0058,Downtown,Traffic Camera,27-02-2023,Active,546,94,Low
+SEN0059,Downtown,Traffic Camera,28-02-2023,Active,383,46,Low
+SEN0060,Industrial Area,Speed Sensor,01-03-2023,Inactive,371,32,Moderate
+SEN0061,Suburbs,Traffic Camera,02-03-2023,Active,423,68,Low
+SEN0062,Suburbs,Traffic Camera,03-03-2023,Inactive,251,65,High
+SEN0063,Downtown,Pollution Sensor,04-03-2023,Inactive,913,87,Low
+SEN0064,Residential Zone,Traffic Camera,05-03-2023,Active,907,92,Moderate
+SEN0065,Downtown,Traffic Camera,06-03-2023,Active,93,35,High
+SEN0066,Industrial Area,Speed Sensor,07-03-2023,Active,260,103,Low
+SEN0067,Highway,Traffic Camera,08-03-2023,Inactive,774,102,Moderate
+SEN0068,Industrial Area,Pollution Sensor,09-03-2023,Active,441,95,High
+SEN0069,Downtown,Traffic Camera,10-03-2023,Active,172,40,Low
+SEN0070,Suburbs,Traffic Camera,11-03-2023,Inactive,145,78,High
+SEN0071,Residential Zone,Pollution Sensor,12-03-2023,Active,187,28,Moderate
+SEN0072,Industrial Area,Speed Sensor,13-03-2023,Inactive,705,41,Low
+SEN0073,Suburbs,Pollution Sensor,14-03-2023,Active,52,71,Moderate
+SEN0074,Suburbs,Speed Sensor,15-03-2023,Inactive,629,83,Moderate
+SEN0075,Downtown,Pollution Sensor,16-03-2023,Active,290,32,High
+SEN0076,Residential Zone,Pollution Sensor,17-03-2023,Active,613,29,Moderate
+SEN0077,Residential Zone,Speed Sensor,18-03-2023,Active,570,79,High
+SEN0078,Industrial Area,Pollution Sensor,19-03-2023,Active,410,105,High
+SEN0079,Residential Zone,Speed Sensor,20-03-2023,Active,370,86,High
+SEN0080,Suburbs,Pollution Sensor,21-03-2023,Inactive,328,46,High
+SEN0081,Downtown,Pollution Sensor,22-03-2023,Active,872,75,High
+SEN0082,Industrial Area,Traffic Camera,23-03-2023,Inactive,635,45,High
+SEN0083,Downtown,Pollution Sensor,24-03-2023,Active,144,61,High
+SEN0084,Highway,Speed Sensor,25-03-2023,Inactive,107,25,Low
+SEN0085,Industrial Area,Pollution Sensor,26-03-2023,Inactive,484,35,Low
+SEN0086,Residential Zone,Traffic Camera,27-03-2023,Inactive,941,72,High
+SEN0087,Downtown,Speed Sensor,28-03-2023,Active,996,92,Moderate
+SEN0088,Residential Zone,Traffic Camera,29-03-2023,Active,619,100,Low
+SEN0089,Downtown,Traffic Camera,30-03-2023,Active,822,91,Moderate
+SEN0090,Suburbs,Pollution Sensor,31-03-2023,Active,688,74,Moderate
+SEN0091,Downtown,Pollution Sensor,01-04-2023,Inactive,299,46,Low
+SEN0092,Industrial Area,Speed Sensor,02-04-2023,Inactive,932,38,Moderate
+SEN0093,Residential Zone,Speed Sensor,03-04-2023,Active,168,71,Moderate
+SEN0094,Industrial Area,Speed Sensor,04-04-2023,Active,99,68,Moderate
+SEN0095,Suburbs,Traffic Camera,05-04-2023,Inactive,59,44,Moderate
+SEN0096,Industrial Area,Pollution Sensor,06-04-2023,Inactive,878,63,Moderate
+SEN0097,Suburbs,Traffic Camera,07-04-2023,Active,587,111,High
+SEN0098,Residential Zone,Traffic Camera,08-04-2023,Inactive,338,95,Moderate
+SEN0099,Highway,Speed Sensor,09-04-2023,Active,908,104,Low
+SEN0100,Industrial Area,Traffic Camera,10-04-2023,Active,966,115,Moderate
+SEN0101,Downtown,Traffic Camera,11-04-2023,Active,200,90,Low
+SEN0102,Downtown,Pollution Sensor,12-04-2023,Inactive,247,117,High
+SEN0103,Downtown,Traffic Camera,13-04-2023,Active,362,64,Moderate
+SEN0104,Highway,Speed Sensor,14-04-2023,Active,65,67,High
+SEN0105,Downtown,Traffic Camera,15-04-2023,Active,199,61,Low
+SEN0106,Downtown,Traffic Camera,16-04-2023,Active,170,27,Low
+SEN0107,Downtown,Traffic Camera,17-04-2023,Inactive,836,109,Low
+SEN0108,Highway,Speed Sensor,18-04-2023,Active,184,48,Low
+SEN0109,Residential Zone,Pollution Sensor,19-04-2023,Inactive,518,54,Moderate
+SEN0110,Industrial Area,Speed Sensor,20-04-2023,Active,248,39,High
+SEN0111,Downtown,Speed Sensor,21-04-2023,Inactive,660,106,High
+SEN0112,Industrial Area,Traffic Camera,22-04-2023,Inactive,689,68,Low
+SEN0113,Industrial Area,Pollution Sensor,23-04-2023,Active,707,65,High
+SEN0114,Industrial Area,Pollution Sensor,24-04-2023,Active,910,79,Low
+SEN0115,Downtown,Pollution Sensor,25-04-2023,Active,639,26,High
+SEN0116,Highway,Pollution Sensor,26-04-2023,Active,856,116,Low
+SEN0117,Suburbs,Pollution Sensor,27-04-2023,Active,916,29,High
+SEN0118,Downtown,Speed Sensor,28-04-2023,Active,670,33,Moderate
+SEN0119,Downtown,Speed Sensor,29-04-2023,Active,350,46,Moderate
+SEN0120,Residential Zone,Pollution Sensor,30-04-2023,Active,365,34,High
+SEN0121,Highway,Pollution Sensor,01-05-2023,Inactive,392,54,Low
+SEN0122,Industrial Area,Traffic Camera,02-05-2023,Active,694,49,Low
+SEN0123,Downtown,Pollution Sensor,03-05-2023,Inactive,255,65,Low
+SEN0124,Downtown,Pollution Sensor,04-05-2023,Inactive,164,57,Moderate
+SEN0125,Suburbs,Speed Sensor,05-05-2023,Active,620,94,Low
+SEN0126,Suburbs,Traffic Camera,06-05-2023,Inactive,221,46,High
+SEN0127,Highway,Speed Sensor,07-05-2023,Active,445,72,High
+SEN0128,Downtown,Pollution Sensor,08-05-2023,Active,338,117,Low
+SEN0129,Downtown,Pollution Sensor,09-05-2023,Active,613,26,Low
+SEN0130,Suburbs,Speed Sensor,10-05-2023,Active,808,48,Low
+SEN0131,Industrial Area,Pollution Sensor,11-05-2023,Inactive,699,81,Moderate
+SEN0132,Industrial Area,Traffic Camera,12-05-2023,Inactive,95,27,Moderate
+SEN0133,Industrial Area,Traffic Camera,13-05-2023,Active,287,103,High
+SEN0134,Industrial Area,Speed Sensor,14-05-2023,Active,827,45,Moderate
+SEN0135,Downtown,Traffic Camera,15-05-2023,Active,639,33,Moderate
+SEN0136,Highway,Speed Sensor,16-05-2023,Inactive,376,112,High
+SEN0137,Highway,Traffic Camera,17-05-2023,Inactive,385,104,High
+SEN0138,Industrial Area,Pollution Sensor,18-05-2023,Inactive,113,30,High
+SEN0139,Residential Zone,Traffic Camera,19-05-2023,Active,900,119,High
+SEN0140,Downtown,Pollution Sensor,20-05-2023,Inactive,251,51,Low
+SEN0141,Highway,Speed Sensor,21-05-2023,Active,92,61,Moderate
+SEN0142,Highway,Speed Sensor,22-05-2023,Active,282,103,Moderate
+SEN0143,Highway,Speed Sensor,23-05-2023,Active,491,97,Moderate
+SEN0144,Suburbs,Traffic Camera,24-05-2023,Inactive,71,91,Low
+SEN0145,Suburbs,Speed Sensor,25-05-2023,Active,409,23,Low
+SEN0146,Industrial Area,Speed Sensor,26-05-2023,Active,830,42,High
+SEN0147,Downtown,Pollution Sensor,27-05-2023,Inactive,480,84,Low
+SEN0148,Highway,Traffic Camera,28-05-2023,Active,121,56,High
+SEN0149,Residential Zone,Traffic Camera,29-05-2023,Active,128,91,High
+SEN0150,Highway,Traffic Camera,30-05-2023,Inactive,204,56,Low
+SEN0151,Residential Zone,Pollution Sensor,31-05-2023,Active,179,77,Moderate
+SEN0152,Industrial Area,Pollution Sensor,01-06-2023,Active,499,89,Moderate
+SEN0153,Residential Zone,Pollution Sensor,02-06-2023,Active,240,117,Moderate
+SEN0154,Residential Zone,Pollution Sensor,03-06-2023,Inactive,100,72,Moderate
+SEN0155,Highway,Speed Sensor,04-06-2023,Inactive,970,55,Low
+SEN0156,Suburbs,Pollution Sensor,05-06-2023,Inactive,98,77,Moderate
+SEN0157,Highway,Speed Sensor,06-06-2023,Inactive,397,118,Moderate
+SEN0158,Residential Zone,Speed Sensor,07-06-2023,Active,532,103,High
+SEN0159,Downtown,Traffic Camera,08-06-2023,Inactive,538,63,Low
+SEN0160,Highway,Pollution Sensor,09-06-2023,Inactive,475,27,Low
+SEN0161,Downtown,Speed Sensor,10-06-2023,Inactive,117,61,Low
+SEN0162,Highway,Traffic Camera,11-06-2023,Active,725,51,High
+SEN0163,Industrial Area,Pollution Sensor,12-06-2023,Inactive,604,86,Moderate
+SEN0164,Highway,Speed Sensor,13-06-2023,Active,117,62,Moderate
+SEN0165,Suburbs,Traffic Camera,14-06-2023,Inactive,726,64,Moderate
+SEN0166,Highway,Pollution Sensor,15-06-2023,Active,690,117,Low
+SEN0167,Residential Zone,Pollution Sensor,16-06-2023,Inactive,289,99,Low
+SEN0168,Residential Zone,Pollution Sensor,17-06-2023,Inactive,512,87,Moderate
+SEN0169,Residential Zone,Speed Sensor,18-06-2023,Active,194,104,Low
+SEN0170,Downtown,Speed Sensor,19-06-2023,Active,753,28,Moderate
+SEN0171,Suburbs,Pollution Sensor,20-06-2023,Active,719,30,Moderate
+SEN0172,Highway,Pollution Sensor,21-06-2023,Active,867,87,Low
+SEN0173,Suburbs,Traffic Camera,22-06-2023,Active,361,48,Moderate
+SEN0174,Downtown,Speed Sensor,23-06-2023,Inactive,723,41,Moderate
+SEN0175,Industrial Area,Speed Sensor,24-06-2023,Active,460,26,Moderate
+SEN0176,Downtown,Pollution Sensor,25-06-2023,Inactive,467,94,Low
+SEN0177,Downtown,Traffic Camera,26-06-2023,Active,705,69,Low
+SEN0178,Highway,Pollution Sensor,27-06-2023,Active,370,35,High
+SEN0179,Industrial Area,Traffic Camera,28-06-2023,Inactive,829,118,High
+SEN0180,Industrial Area,Traffic Camera,29-06-2023,Inactive,698,102,Moderate
+SEN0181,Downtown,Traffic Camera,30-06-2023,Inactive,81,49,Moderate
+SEN0182,Residential Zone,Traffic Camera,01-07-2023,Inactive,981,21,High
+SEN0183,Downtown,Traffic Camera,02-07-2023,Inactive,635,26,Low
+SEN0184,Highway,Speed Sensor,03-07-2023,Active,847,21,High
+SEN0185,Residential Zone,Pollution Sensor,04-07-2023,Active,965,110,Moderate
+SEN0186,Residential Zone,Pollution Sensor,05-07-2023,Inactive,493,113,Low
+SEN0187,Suburbs,Speed Sensor,06-07-2023,Active,497,36,Moderate
+SEN0188,Suburbs,Speed Sensor,07-07-2023,Inactive,486,86,Low
+SEN0189,Downtown,Pollution Sensor,08-07-2023,Active,421,55,Moderate
+SEN0190,Suburbs,Speed Sensor,09-07-2023,Active,841,29,Low
+SEN0191,Industrial Area,Traffic Camera,10-07-2023,Active,815,38,Low
+SEN0192,Residential Zone,Speed Sensor,11-07-2023,Inactive,932,27,High
+SEN0193,Residential Zone,Speed Sensor,12-07-2023,Active,485,110,High
+SEN0194,Residential Zone,Pollution Sensor,13-07-2023,Inactive,264,49,Moderate
+SEN0195,Suburbs,Pollution Sensor,14-07-2023,Active,250,61,Moderate
+SEN0196,Residential Zone,Pollution Sensor,15-07-2023,Active,267,83,High
+SEN0197,Downtown,Pollution Sensor,16-07-2023,Inactive,762,43,Low
+SEN0198,Suburbs,Pollution Sensor,17-07-2023,Inactive,559,35,Moderate
+SEN0199,Residential Zone,Speed Sensor,18-07-2023,Active,846,73,Moderate
+SEN0200,Downtown,Speed Sensor,19-07-2023,Inactive,643,55,High
+SEN0201,Residential Zone,Traffic Camera,20-07-2023,Inactive,137,66,High
+SEN0202,Residential Zone,Traffic Camera,21-07-2023,Inactive,323,32,Moderate
+SEN0203,Residential Zone,Traffic Camera,22-07-2023,Active,235,45,High
+SEN0204,Highway,Traffic Camera,23-07-2023,Inactive,896,63,Low
+SEN0205,Highway,Traffic Camera,24-07-2023,Active,696,44,Low
+SEN0206,Industrial Area,Traffic Camera,25-07-2023,Inactive,224,104,High
+SEN0207,Residential Zone,Speed Sensor,26-07-2023,Active,85,52,Low
+SEN0208,Residential Zone,Pollution Sensor,27-07-2023,Inactive,511,22,Low
+SEN0209,Downtown,Speed Sensor,28-07-2023,Active,318,102,Moderate
+SEN0210,Residential Zone,Pollution Sensor,29-07-2023,Inactive,537,23,Low
+SEN0211,Highway,Pollution Sensor,30-07-2023,Inactive,53,91,Moderate
+SEN0212,Residential Zone,Traffic Camera,31-07-2023,Active,450,69,Low
+SEN0213,Downtown,Traffic Camera,01-08-2023,Inactive,478,23,Low
+SEN0214,Industrial Area,Speed Sensor,02-08-2023,Inactive,463,92,Low
+SEN0215,Highway,Pollution Sensor,03-08-2023,Active,577,89,Low
+SEN0216,Residential Zone,Pollution Sensor,04-08-2023,Active,480,36,High
+SEN0217,Downtown,Speed Sensor,05-08-2023,Inactive,272,87,Low
+SEN0218,Downtown,Traffic Camera,06-08-2023,Inactive,576,113,High
+SEN0219,Residential Zone,Traffic Camera,07-08-2023,Inactive,760,58,Moderate
+SEN0220,Industrial Area,Traffic Camera,08-08-2023,Active,576,114,Moderate
+SEN0221,Industrial Area,Speed Sensor,09-08-2023,Active,78,32,Moderate
+SEN0222,Residential Zone,Pollution Sensor,10-08-2023,Active,72,20,Moderate
+SEN0223,Residential Zone,Speed Sensor,11-08-2023,Inactive,346,112,Low
+SEN0224,Downtown,Speed Sensor,12-08-2023,Inactive,141,20,Moderate
+SEN0225,Industrial Area,Pollution Sensor,13-08-2023,Inactive,694,51,Moderate
+SEN0226,Highway,Pollution Sensor,14-08-2023,Active,699,88,High
+SEN0227,Suburbs,Traffic Camera,15-08-2023,Active,697,85,High
+SEN0228,Industrial Area,Pollution Sensor,16-08-2023,Inactive,691,119,Low
+SEN0229,Downtown,Speed Sensor,17-08-2023,Active,629,29,Moderate
+SEN0230,Highway,Traffic Camera,18-08-2023,Inactive,763,110,Low
+SEN0231,Downtown,Speed Sensor,19-08-2023,Active,223,112,High
+SEN0232,Downtown,Pollution Sensor,20-08-2023,Active,728,46,High
+SEN0233,Downtown,Traffic Camera,21-08-2023,Inactive,756,27,Low
+SEN0234,Industrial Area,Pollution Sensor,22-08-2023,Inactive,586,60,High
+SEN0235,Industrial Area,Traffic Camera,23-08-2023,Inactive,347,30,Low
+SEN0236,Suburbs,Traffic Camera,24-08-2023,Active,698,65,Low
+SEN0237,Highway,Pollution Sensor,25-08-2023,Inactive,535,59,Moderate
+SEN0238,Residential Zone,Traffic Camera,26-08-2023,Inactive,748,75,High
+SEN0239,Residential Zone,Traffic Camera,27-08-2023,Inactive,654,106,Moderate
+SEN0240,Suburbs,Pollution Sensor,28-08-2023,Active,630,45,Low
+SEN0241,Industrial Area,Traffic Camera,29-08-2023,Inactive,717,52,High
+SEN0242,Industrial Area,Traffic Camera,30-08-2023,Inactive,269,24,High
+SEN0243,Suburbs,Pollution Sensor,31-08-2023,Inactive,952,100,Low
+SEN0244,Highway,Traffic Camera,01-09-2023,Active,292,113,Low
+SEN0245,Highway,Speed Sensor,02-09-2023,Inactive,278,25,Low
+SEN0246,Suburbs,Pollution Sensor,03-09-2023,Inactive,416,73,High
+SEN0247,Highway,Pollution Sensor,04-09-2023,Inactive,278,35,High
+SEN0248,Highway,Pollution Sensor,05-09-2023,Active,594,59,Low
+SEN0249,Highway,Speed Sensor,06-09-2023,Inactive,693,118,Low
+SEN0250,Suburbs,Speed Sensor,07-09-2023,Inactive,298,114,Moderate
+SEN0251,Highway,Pollution Sensor,08-09-2023,Inactive,358,112,Low
+SEN0252,Industrial Area,Speed Sensor,09-09-2023,Inactive,718,113,High
+SEN0253,Suburbs,Speed Sensor,10-09-2023,Inactive,655,22,Low
+SEN0254,Industrial Area,Speed Sensor,11-09-2023,Inactive,580,100,High
+SEN0255,Highway,Speed Sensor,12-09-2023,Inactive,814,63,Low
+SEN0256,Suburbs,Speed Sensor,13-09-2023,Inactive,372,50,Moderate
+SEN0257,Downtown,Traffic Camera,14-09-2023,Active,192,100,High
+SEN0258,Highway,Speed Sensor,15-09-2023,Inactive,866,30,Low
+SEN0259,Residential Zone,Traffic Camera,16-09-2023,Inactive,380,41,Low
+SEN0260,Industrial Area,Speed Sensor,17-09-2023,Inactive,214,114,Moderate
+SEN0261,Industrial Area,Speed Sensor,18-09-2023,Inactive,83,47,Low
+SEN0262,Highway,Pollution Sensor,19-09-2023,Inactive,942,37,Low
+SEN0263,Highway,Traffic Camera,20-09-2023,Inactive,733,37,Low
+SEN0264,Residential Zone,Traffic Camera,21-09-2023,Active,626,103,High
+SEN0265,Downtown,Traffic Camera,22-09-2023,Inactive,865,57,Moderate
+SEN0266,Suburbs,Speed Sensor,23-09-2023,Inactive,908,32,Moderate
+SEN0267,Industrial Area,Traffic Camera,24-09-2023,Active,768,76,High
+SEN0268,Highway,Traffic Camera,25-09-2023,Active,270,42,High
+SEN0269,Downtown,Traffic Camera,26-09-2023,Active,372,35,Low
+SEN0270,Highway,Traffic Camera,27-09-2023,Inactive,787,60,Moderate
+SEN0271,Residential Zone,Pollution Sensor,28-09-2023,Active,305,38,Low
+SEN0272,Highway,Speed Sensor,29-09-2023,Inactive,666,80,Moderate
+SEN0273,Highway,Traffic Camera,30-09-2023,Active,693,33,Low
+SEN0274,Residential Zone,Pollution Sensor,01-10-2023,Inactive,636,81,High
+SEN0275,Downtown,Pollution Sensor,02-10-2023,Inactive,490,89,Low
+SEN0276,Suburbs,Pollution Sensor,03-10-2023,Inactive,240,111,Low
+SEN0277,Residential Zone,Pollution Sensor,04-10-2023,Inactive,979,49,High
+SEN0278,Downtown,Traffic Camera,05-10-2023,Inactive,959,69,Moderate
+SEN0279,Residential Zone,Speed Sensor,06-10-2023,Active,95,96,Moderate
+SEN0280,Highway,Speed Sensor,07-10-2023,Active,169,25,Moderate
+SEN0281,Industrial Area,Speed Sensor,08-10-2023,Inactive,301,88,Low
+SEN0282,Highway,Speed Sensor,09-10-2023,Active,614,102,Moderate
+SEN0283,Industrial Area,Traffic Camera,10-10-2023,Inactive,985,91,High
+SEN0284,Industrial Area,Traffic Camera,11-10-2023,Active,526,21,Low
+SEN0285,Suburbs,Speed Sensor,12-10-2023,Active,114,66,Low
+SEN0286,Downtown,Traffic Camera,13-10-2023,Active,985,79,Moderate
+SEN0287,Residential Zone,Traffic Camera,14-10-2023,Inactive,642,29,High
+SEN0288,Highway,Speed Sensor,15-10-2023,Inactive,386,98,High
+SEN0289,Highway,Pollution Sensor,16-10-2023,Active,301,25,Low
+SEN0290,Suburbs,Traffic Camera,17-10-2023,Active,926,103,Moderate
+SEN0291,Downtown,Traffic Camera,18-10-2023,Active,640,58,Low
+SEN0292,Residential Zone,Speed Sensor,19-10-2023,Active,894,45,Moderate
+SEN0293,Industrial Area,Traffic Camera,20-10-2023,Inactive,330,43,Low
+SEN0294,Downtown,Traffic Camera,21-10-2023,Active,463,107,Moderate
+SEN0295,Industrial Area,Traffic Camera,22-10-2023,Active,635,44,High
+SEN0296,Downtown,Pollution Sensor,23-10-2023,Active,297,26,High
+SEN0297,Industrial Area,Speed Sensor,24-10-2023,Active,516,32,Moderate
+SEN0298,Downtown,Traffic Camera,25-10-2023,Inactive,171,96,Moderate
+SEN0299,Industrial Area,Traffic Camera,26-10-2023,Active,491,43,High
+SEN0300,Industrial Area,Speed Sensor,27-10-2023,Inactive,393,110,Moderate
+SEN0301,Highway,Speed Sensor,28-10-2023,Inactive,503,105,Moderate
+SEN0302,Residential Zone,Traffic Camera,29-10-2023,Active,77,105,High
+SEN0303,Downtown,Pollution Sensor,30-10-2023,Inactive,405,59,Low
+SEN0304,Downtown,Speed Sensor,31-10-2023,Active,912,47,High
+SEN0305,Highway,Pollution Sensor,01-11-2023,Active,534,48,Low
+SEN0306,Highway,Speed Sensor,02-11-2023,Active,454,83,Low
+SEN0307,Industrial Area,Pollution Sensor,03-11-2023,Active,980,103,High
+SEN0308,Downtown,Pollution Sensor,04-11-2023,Inactive,358,56,Low
+SEN0309,Industrial Area,Pollution Sensor,05-11-2023,Inactive,957,70,Moderate
+SEN0310,Industrial Area,Traffic Camera,06-11-2023,Inactive,956,65,Low
+SEN0311,Suburbs,Traffic Camera,07-11-2023,Inactive,551,25,High
+SEN0312,Residential Zone,Traffic Camera,08-11-2023,Active,101,117,Low
+SEN0313,Highway,Pollution Sensor,09-11-2023,Inactive,648,40,Low
+SEN0314,Industrial Area,Pollution Sensor,10-11-2023,Active,768,53,Low
+SEN0315,Industrial Area,Speed Sensor,11-11-2023,Inactive,853,113,Low
+SEN0316,Downtown,Speed Sensor,12-11-2023,Inactive,662,118,Low
+SEN0317,Downtown,Traffic Camera,13-11-2023,Active,300,100,Moderate
+SEN0318,Suburbs,Pollution Sensor,14-11-2023,Inactive,770,36,High
+SEN0319,Downtown,Speed Sensor,15-11-2023,Active,830,79,Low
+SEN0320,Residential Zone,Pollution Sensor,16-11-2023,Active,766,82,Low
+SEN0321,Downtown,Pollution Sensor,17-11-2023,Inactive,719,44,Moderate
+SEN0322,Highway,Traffic Camera,18-11-2023,Active,272,80,High
+SEN0323,Industrial Area,Pollution Sensor,19-11-2023,Inactive,486,109,Moderate
+SEN0324,Industrial Area,Pollution Sensor,20-11-2023,Active,144,114,Moderate
+SEN0325,Highway,Traffic Camera,21-11-2023,Active,634,71,High
+SEN0326,Suburbs,Traffic Camera,22-11-2023,Active,460,66,High
+SEN0327,Residential Zone,Traffic Camera,23-11-2023,Inactive,434,64,Low
+SEN0328,Residential Zone,Pollution Sensor,24-11-2023,Active,294,95,High
+SEN0329,Downtown,Pollution Sensor,25-11-2023,Active,591,50,Moderate
+SEN0330,Highway,Speed Sensor,26-11-2023,Inactive,383,51,High
+SEN0331,Downtown,Speed Sensor,27-11-2023,Inactive,930,85,Moderate
+SEN0332,Highway,Speed Sensor,28-11-2023,Active,523,41,High
+SEN0333,Downtown,Pollution Sensor,29-11-2023,Inactive,731,77,Low
+SEN0334,Industrial Area,Traffic Camera,30-11-2023,Inactive,652,64,Moderate
+SEN0335,Highway,Speed Sensor,01-12-2023,Inactive,858,50,High
+SEN0336,Downtown,Pollution Sensor,02-12-2023,Active,565,48,Low
+SEN0337,Suburbs,Pollution Sensor,03-12-2023,Active,248,67,Moderate
+SEN0338,Highway,Traffic Camera,04-12-2023,Active,660,87,Moderate
+SEN0339,Suburbs,Speed Sensor,05-12-2023,Active,365,43,Moderate
+SEN0340,Residential Zone,Pollution Sensor,06-12-2023,Active,53,101,Low
+SEN0341,Downtown,Traffic Camera,07-12-2023,Active,880,86,Moderate
+SEN0342,Downtown,Pollution Sensor,08-12-2023,Active,497,103,Low
+SEN0343,Residential Zone,Traffic Camera,09-12-2023,Active,52,66,High
+SEN0344,Suburbs,Speed Sensor,10-12-2023,Active,184,78,Moderate
+SEN0345,Highway,Pollution Sensor,11-12-2023,Inactive,760,33,Moderate
+SEN0346,Downtown,Pollution Sensor,12-12-2023,Inactive,441,113,High
+SEN0347,Suburbs,Speed Sensor,13-12-2023,Inactive,988,91,High
+SEN0348,Highway,Speed Sensor,14-12-2023,Active,346,112,Low
+SEN0349,Suburbs,Pollution Sensor,15-12-2023,Inactive,329,115,High
+SEN0350,Highway,Traffic Camera,16-12-2023,Inactive,341,95,High
+SEN0351,Downtown,Speed Sensor,17-12-2023,Active,723,40,Moderate
+SEN0352,Industrial Area,Traffic Camera,18-12-2023,Active,187,76,Moderate
+SEN0353,Highway,Speed Sensor,19-12-2023,Active,340,86,Moderate
+SEN0354,Suburbs,Speed Sensor,20-12-2023,Inactive,957,115,Moderate
+SEN0355,Residential Zone,Traffic Camera,21-12-2023,Active,111,47,Moderate
+SEN0356,Downtown,Traffic Camera,22-12-2023,Inactive,742,111,High
+SEN0357,Residential Zone,Traffic Camera,23-12-2023,Inactive,224,114,Moderate
+SEN0358,Residential Zone,Pollution Sensor,24-12-2023,Inactive,660,26,Moderate
+SEN0359,Residential Zone,Traffic Camera,25-12-2023,Inactive,185,40,Moderate
+SEN0360,Downtown,Pollution Sensor,26-12-2023,Active,139,76,Low
+SEN0361,Suburbs,Pollution Sensor,27-12-2023,Inactive,179,116,Low
+SEN0362,Highway,Pollution Sensor,28-12-2023,Active,810,110,High
+SEN0363,Downtown,Traffic Camera,29-12-2023,Inactive,677,64,Moderate
+SEN0364,Suburbs,Pollution Sensor,30-12-2023,Inactive,306,71,Moderate
+SEN0365,Downtown,Traffic Camera,31-12-2023,Active,410,113,High
+SEN0366,Downtown,Traffic Camera,01-01-2024,Active,985,118,Low
+SEN0367,Industrial Area,Pollution Sensor,02-01-2024,Inactive,668,26,Moderate
+SEN0368,Highway,Speed Sensor,03-01-2024,Active,852,65,High
+SEN0369,Suburbs,Pollution Sensor,04-01-2024,Active,269,92,High
+SEN0370,Suburbs,Traffic Camera,05-01-2024,Inactive,354,105,Moderate
+SEN0371,Industrial Area,Speed Sensor,06-01-2024,Inactive,830,28,Low
+SEN0372,Suburbs,Speed Sensor,07-01-2024,Inactive,362,33,High
+SEN0373,Downtown,Traffic Camera,08-01-2024,Inactive,562,117,Low
+SEN0374,Industrial Area,Traffic Camera,09-01-2024,Inactive,485,84,High
+SEN0375,Residential Zone,Traffic Camera,10-01-2024,Active,294,42,High
+SEN0376,Downtown,Traffic Camera,11-01-2024,Active,475,103,High
+SEN0377,Highway,Traffic Camera,12-01-2024,Inactive,242,118,Low
+SEN0378,Downtown,Speed Sensor,13-01-2024,Active,935,42,High
+SEN0379,Highway,Pollution Sensor,14-01-2024,Inactive,834,40,High
+SEN0380,Industrial Area,Traffic Camera,15-01-2024,Active,527,98,High
+SEN0381,Downtown,Traffic Camera,16-01-2024,Inactive,181,62,Low
+SEN0382,Highway,Speed Sensor,17-01-2024,Inactive,71,109,High
+SEN0383,Suburbs,Speed Sensor,18-01-2024,Inactive,759,58,Low
+SEN0384,Industrial Area,Pollution Sensor,19-01-2024,Inactive,396,53,Low
+SEN0385,Residential Zone,Pollution Sensor,20-01-2024,Inactive,883,97,Moderate
+SEN0386,Residential Zone,Traffic Camera,21-01-2024,Inactive,875,21,Low
+SEN0387,Residential Zone,Speed Sensor,22-01-2024,Active,860,99,Low
+SEN0388,Industrial Area,Pollution Sensor,23-01-2024,Inactive,193,105,High
+SEN0389,Residential Zone,Pollution Sensor,24-01-2024,Active,873,76,Low
+SEN0390,Industrial Area,Traffic Camera,25-01-2024,Active,586,57,Low
+SEN0391,Downtown,Pollution Sensor,26-01-2024,Active,848,84,Moderate
+SEN0392,Downtown,Pollution Sensor,27-01-2024,Active,342,99,Low
+SEN0393,Industrial Area,Speed Sensor,28-01-2024,Active,602,81,Low
+SEN0394,Suburbs,Traffic Camera,29-01-2024,Active,894,93,High
+SEN0395,Suburbs,Pollution Sensor,30-01-2024,Inactive,729,29,Low
+SEN0396,Residential Zone,Traffic Camera,31-01-2024,Active,690,108,Low
+SEN0397,Suburbs,Speed Sensor,01-02-2024,Active,670,23,Moderate
+SEN0398,Residential Zone,Pollution Sensor,02-02-2024,Active,510,113,High
+SEN0399,Downtown,Traffic Camera,03-02-2024,Inactive,813,61,Low
+SEN0400,Highway,Speed Sensor,04-02-2024,Inactive,172,30,High
+SEN0401,Highway,Traffic Camera,05-02-2024,Active,713,78,Moderate
+SEN0402,Suburbs,Traffic Camera,06-02-2024,Inactive,337,69,High
+SEN0403,Downtown,Pollution Sensor,07-02-2024,Active,679,48,Low
+SEN0404,Suburbs,Traffic Camera,08-02-2024,Inactive,749,108,Low
+SEN0405,Downtown,Traffic Camera,09-02-2024,Inactive,527,45,Moderate
+SEN0406,Suburbs,Speed Sensor,10-02-2024,Inactive,284,93,High
+SEN0407,Residential Zone,Speed Sensor,11-02-2024,Inactive,198,33,Moderate
+SEN0408,Downtown,Speed Sensor,12-02-2024,Active,713,47,Moderate
+SEN0409,Downtown,Traffic Camera,13-02-2024,Active,855,35,Low
+SEN0410,Residential Zone,Traffic Camera,14-02-2024,Active,988,104,High
+SEN0411,Downtown,Traffic Camera,15-02-2024,Inactive,136,48,Low
+SEN0412,Suburbs,Traffic Camera,16-02-2024,Inactive,164,41,High
+SEN0413,Downtown,Pollution Sensor,17-02-2024,Active,137,89,Low
+SEN0414,Industrial Area,Traffic Camera,18-02-2024,Active,722,109,Moderate
+SEN0415,Downtown,Speed Sensor,19-02-2024,Active,991,119,High
+SEN0416,Highway,Speed Sensor,20-02-2024,Inactive,770,57,Moderate
+SEN0417,Downtown,Pollution Sensor,21-02-2024,Active,680,20,High
+SEN0418,Residential Zone,Speed Sensor,22-02-2024,Inactive,841,71,Low
+SEN0419,Highway,Speed Sensor,23-02-2024,Active,547,76,Low
+SEN0420,Industrial Area,Speed Sensor,24-02-2024,Inactive,853,117,Low
+SEN0421,Highway,Speed Sensor,25-02-2024,Inactive,693,90,High
+SEN0422,Highway,Pollution Sensor,26-02-2024,Active,323,95,Moderate
+SEN0423,Highway,Pollution Sensor,27-02-2024,Inactive,715,37,High
+SEN0424,Downtown,Speed Sensor,28-02-2024,Inactive,140,30,Moderate
+SEN0425,Highway,Traffic Camera,29-02-2024,Inactive,538,42,Moderate
+SEN0426,Downtown,Traffic Camera,01-03-2024,Active,875,64,High
+SEN0427,Highway,Traffic Camera,02-03-2024,Inactive,165,68,High
+SEN0428,Highway,Traffic Camera,03-03-2024,Active,175,20,High
+SEN0429,Suburbs,Traffic Camera,04-03-2024,Inactive,794,53,Low
+SEN0430,Suburbs,Speed Sensor,05-03-2024,Active,574,40,Moderate
+SEN0431,Industrial Area,Traffic Camera,06-03-2024,Inactive,942,26,Moderate
+SEN0432,Industrial Area,Pollution Sensor,07-03-2024,Inactive,891,51,Low
+SEN0433,Residential Zone,Pollution Sensor,08-03-2024,Active,275,70,High
+SEN0434,Downtown,Traffic Camera,09-03-2024,Inactive,335,82,Low
+SEN0435,Downtown,Pollution Sensor,10-03-2024,Active,739,116,Moderate
+SEN0436,Suburbs,Speed Sensor,11-03-2024,Inactive,330,49,Moderate
+SEN0437,Highway,Speed Sensor,12-03-2024,Inactive,949,75,High
+SEN0438,Suburbs,Traffic Camera,13-03-2024,Active,218,57,Moderate
+SEN0439,Highway,Pollution Sensor,14-03-2024,Inactive,671,108,Low
+SEN0440,Suburbs,Traffic Camera,15-03-2024,Active,821,119,High
+SEN0441,Residential Zone,Traffic Camera,16-03-2024,Active,710,42,Moderate
+SEN0442,Industrial Area,Traffic Camera,17-03-2024,Active,587,52,Low
+SEN0443,Downtown,Traffic Camera,18-03-2024,Active,869,69,Low
+SEN0444,Highway,Traffic Camera,19-03-2024,Active,246,28,High
+SEN0445,Residential Zone,Traffic Camera,20-03-2024,Active,901,54,High
+SEN0446,Residential Zone,Speed Sensor,21-03-2024,Active,767,23,High
+SEN0447,Downtown,Pollution Sensor,22-03-2024,Inactive,516,84,Moderate
+SEN0448,Downtown,Traffic Camera,23-03-2024,Active,952,28,High
+SEN0449,Downtown,Pollution Sensor,24-03-2024,Inactive,576,61,Low
+SEN0450,Residential Zone,Traffic Camera,25-03-2024,Inactive,641,51,Moderate
+SEN0451,Industrial Area,Pollution Sensor,26-03-2024,Active,705,51,Low
+SEN0452,Highway,Speed Sensor,27-03-2024,Active,286,79,Low
+SEN0453,Suburbs,Traffic Camera,28-03-2024,Active,459,100,High
+SEN0454,Suburbs,Pollution Sensor,29-03-2024,Inactive,178,99,Low
+SEN0455,Industrial Area,Speed Sensor,30-03-2024,Inactive,242,26,High
+SEN0456,Downtown,Speed Sensor,31-03-2024,Active,330,68,High
+SEN0457,Highway,Speed Sensor,01-04-2024,Inactive,725,48,High
+SEN0458,Highway,Speed Sensor,02-04-2024,Active,794,101,High
+SEN0459,Suburbs,Speed Sensor,03-04-2024,Active,520,62,High
+SEN0460,Downtown,Pollution Sensor,04-04-2024,Inactive,772,57,Low
+SEN0461,Highway,Pollution Sensor,05-04-2024,Inactive,154,74,Moderate
+SEN0462,Suburbs,Traffic Camera,06-04-2024,Active,465,44,Moderate
+SEN0463,Residential Zone,Pollution Sensor,07-04-2024,Active,800,40,High
+SEN0464,Industrial Area,Speed Sensor,08-04-2024,Active,676,72,Low
+SEN0465,Industrial Area,Traffic Camera,09-04-2024,Active,697,63,Low
+SEN0466,Residential Zone,Speed Sensor,10-04-2024,Active,455,41,Low
+SEN0467,Downtown,Pollution Sensor,11-04-2024,Inactive,355,21,High
+SEN0468,Suburbs,Pollution Sensor,12-04-2024,Inactive,590,79,High
+SEN0469,Industrial Area,Traffic Camera,13-04-2024,Inactive,668,86,Moderate
+SEN0470,Suburbs,Pollution Sensor,14-04-2024,Active,921,32,High
+SEN0471,Highway,Speed Sensor,15-04-2024,Active,558,21,High
+SEN0472,Downtown,Pollution Sensor,16-04-2024,Inactive,805,76,Moderate
+SEN0473,Suburbs,Pollution Sensor,17-04-2024,Active,506,52,Moderate
+SEN0474,Residential Zone,Speed Sensor,18-04-2024,Inactive,206,29,Moderate
+SEN0475,Suburbs,Speed Sensor,19-04-2024,Active,112,108,Low
+SEN0476,Downtown,Speed Sensor,20-04-2024,Inactive,482,119,High
+SEN0477,Highway,Pollution Sensor,21-04-2024,Active,375,41,High
+SEN0478,Downtown,Speed Sensor,22-04-2024,Active,937,102,Low
+SEN0479,Downtown,Speed Sensor,23-04-2024,Active,440,94,Low
+SEN0480,Highway,Pollution Sensor,24-04-2024,Inactive,268,71,High
+SEN0481,Downtown,Pollution Sensor,25-04-2024,Active,480,56,High
+SEN0482,Suburbs,Traffic Camera,26-04-2024,Active,466,112,Low
+SEN0483,Residential Zone,Traffic Camera,27-04-2024,Active,633,46,Moderate
+SEN0484,Downtown,Traffic Camera,28-04-2024,Inactive,623,50,High
+SEN0485,Industrial Area,Traffic Camera,29-04-2024,Active,454,96,Low
+SEN0486,Highway,Traffic Camera,30-04-2024,Inactive,971,63,Moderate
+SEN0487,Residential Zone,Speed Sensor,01-05-2024,Active,719,81,Moderate
+SEN0488,Residential Zone,Traffic Camera,02-05-2024,Active,205,90,Moderate
+SEN0489,Downtown,Traffic Camera,03-05-2024,Active,997,103,Low
+SEN0490,Suburbs,Traffic Camera,04-05-2024,Inactive,502,46,High
+SEN0491,Industrial Area,Traffic Camera,05-05-2024,Active,592,80,Moderate
+SEN0492,Industrial Area,Speed Sensor,06-05-2024,Inactive,101,80,Moderate
+SEN0493,Residential Zone,Speed Sensor,07-05-2024,Active,75,78,Low
+SEN0494,Highway,Pollution Sensor,08-05-2024,Inactive,953,48,Moderate
+SEN0495,Residential Zone,Speed Sensor,09-05-2024,Inactive,757,77,High
+SEN0496,Highway,Traffic Camera,10-05-2024,Active,363,47,Low
+SEN0497,Downtown,Speed Sensor,11-05-2024,Active,776,87,Moderate
+SEN0498,Residential Zone,Speed Sensor,12-05-2024,Active,116,68,Low
+SEN0499,Downtown,Pollution Sensor,13-05-2024,Inactive,695,111,Low
+SEN0500,Downtown,Traffic Camera,14-05-2024,Active,434,93,High
