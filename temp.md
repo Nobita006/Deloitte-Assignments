@@ -1,313 +1,335 @@
-# Detailed Report on Smart City Traffic & Accident Analytics
+## Project Report: Sales & Revenue Analysis for a Small Business
 
-## 1. Data Loading & Pre-Processing
+### Introduction
+I undertook this project to analyze sales and revenue data for a small retail business, following the guidelines laid out in the provided PDF titled **“Project Title - Sales & Revenue Analysis for a Small Business.”** My primary goals were to:
 
-I began by loading the provided CSV files for sensor and accident data into Python using the Pandas library. This step involved standardizing column names (converted to lower-case) for consistency.
+1. **Extract** and **transform** the CSV data (customers, products, and sales) into a consistent, clean format.  
+2. **Load** the cleaned data into a **MySQL** database, organizing it into fact and dimension tables for easier analysis (star schema approach, but without a separate date dimension).  
+3. **Analyze** the data using **SQL** queries (top-selling products, low-performing categories, customer segmentation).  
+4. **Perform Predictive Modeling** using Python to:
+   - **Forecast future sales trends** with **Prophet**.
+   - **Predict Customer Lifetime Value (CLV)** using **BG/NBD** and **Gamma-Gamma** models from the **lifetimes** package.
 
-**Python Code Snippet:**
+### Assumptions and Tools
+- **Python Environment**: I used Python 3.x with the following libraries:
+  - **pandas**, **numpy** for data manipulation
+  - **sqlalchemy** and **pymysql** for MySQL connectivity
+  - **dateutil** for robust date parsing
+  - **matplotlib** and **prophet** for forecasting
+  - **lifetimes** for CLV modeling
+- **MySQL**: Database named `case5`, user credentials set to `root/12345` on localhost.
+- **CSV Encodings**: Detected using the **chardet** library; determined to be `ISO-8859-1`.
+
+### 1. Loading CSV Data into Pandas
+I had four CSV datasets:
+- **AdventureWorks_Customers.csv**  
+- **AdventureWorks_Products.csv**  
+- **AdventureWorks_Sales_2015.csv**, **AdventureWorks_Sales_2016.csv**, **AdventureWorks_Sales_2017.csv**
+
+I used the following Python code to detect file encodings and read the CSVs (excerpt):
 
 ```python
-import pandas as pd
+import chardet
 
-# Load CSV files
-df_sensor = pd.read_csv('road_traffic_sensor_data.csv')
-df_accident = pd.read_csv('traffic_accident_data.csv')
+# Detect file encoding
+with open('AdventureWorks_Customers.csv', 'rb') as f:
+    raw_data = f.read()
+result = chardet.detect(raw_data)
+print(result)  # -> {'encoding': 'ISO-8859-1', 'confidence': 0.73, 'language': ''}
 
-# Standardize column names to lower-case
-df_sensor.columns = [col.lower() for col in df_sensor.columns]
-df_accident.columns = [col.lower() for col in df_accident.columns]
+# Read CSV files with the detected encoding
+customers_df = pd.read_csv("AdventureWorks_Customers.csv", encoding="ISO-8859-1")
+products_df = pd.read_csv("AdventureWorks_Products.csv", encoding="ISO-8859-1")
+sales_2015_df = pd.read_csv("AW Sales/AdventureWorks_Sales_2015.csv", encoding="ISO-8859-1")
+# etc.
 ```
 
-This allowed me to work with a consistent dataset before moving on to the quality and transformation steps.
+This ensured I avoided `UnicodeDecodeError` issues.
 
----
+### 2. Data Cleaning and Transformation in Python
 
-## 2. Data Quality Checks & Cleaning
+I performed multiple data cleaning steps:
 
-To ensure reliable analytics, I performed several data quality checks:
-- **Uniqueness Check:** Verified that the primary key columns (`sensor_id` in sensor data and `accident_id` in accident data) are unique.
-- **Missing Data Check:** Assessed the presence of null values. I opted to drop any rows with missing data for simplicity.
+1. **Parsing BirthDate** (with slashes and dashes) using `dateutil.parser.parse`:
+   ```python
+   def parse_birthdate(date_str):
+       try:
+           return parser.parse(date_str)
+       except:
+           return pd.NaT
 
-**Python Code Snippet:**
+   customers_df['BirthDate'] = customers_df['BirthDate'].apply(parse_birthdate)
+   ```
+2. **Cleaning AnnualIncome** by removing symbols (`$`, commas) and converting to numeric:
+   ```python
+   customers_df['AnnualIncome'] = (
+       customers_df['AnnualIncome']
+       .replace({r'\$': '', ',': ''}, regex=True)
+       .str.strip()
+   )
+   customers_df['AnnualIncome'] = pd.to_numeric(customers_df['AnnualIncome'], errors='coerce')
+   ```
+3. **Dropping Rows** with critical missing values:
+   ```python
+   before_drop = len(customers_df)
+   customers_df.dropna(subset=['CustomerKey', 'BirthDate', 'AnnualIncome'], inplace=True)
+   after_drop = len(customers_df)
+   print(f"Dropped {before_drop - after_drop} rows from customers_df due to missing fields.")
+   ```
+4. **Transforming ProductSize** (S → 44, M → 48, etc.):
+   ```python
+   size_mapping = {'S': 44, 'M': 48, 'L': 52, 'XL': 62}
+
+   def transform_size(x):
+       if isinstance(x, str):
+           x = x.strip()
+           if x in size_mapping:
+               return size_mapping[x]
+           else:
+               try:
+                   return int(x)
+               except ValueError:
+                   return np.nan
+       return x
+
+   products_df['ProductSize'] = products_df['ProductSize'].apply(transform_size)
+   products_df['ProductSize'] = pd.to_numeric(products_df['ProductSize'], errors='coerce')
+   ```
+5. **Combining Sales Data** from 2015, 2016, and 2017:
+   ```python
+   sales_df = pd.concat([sales_2015_df, sales_2016_df, sales_2017_df], ignore_index=True)
+   ```
+6. **Converting OrderDate & StockDate** to datetime and dropping invalid rows:
+   ```python
+   sales_df['OrderDate'] = pd.to_datetime(sales_df['OrderDate'], errors='coerce')
+   sales_df['StockDate'] = pd.to_datetime(sales_df['StockDate'], errors='coerce')
+   ```
+7. **Creating a CompositeKey** = OrderNumber + OrderLineItem for uniqueness:
+   ```python
+   sales_df['CompositeKey'] = (
+       sales_df['OrderNumber'].astype(str) + "_" +
+       sales_df['OrderLineItem'].astype(str)
+   )
+   ```
+8. **Dropping Missing Values** in sales:
+   ```python
+   before_drop = len(sales_df)
+   sales_df.dropna(subset=['OrderDate', 'ProductKey', 'CustomerKey', 'OrderQuantity'], inplace=True)
+   after_drop = len(sales_df)
+   print(f"Dropped {before_drop - after_drop} rows from sales_df due to missing fields.")
+   ```
+9. **Calculating Revenue** = OrderQuantity * ProductPrice (after merging ProductPrice from `products_df`).
+
+### 3. Creating Fact and Dimension Tables
+
+I opted for a star-schema style approach **without a separate date dimension**:
+
+1. **`dim_customer`**: Contains each customer’s attributes (e.g., FirstName, LastName, BirthDate, etc.).
+2. **`dim_product`**: Contains product attributes (e.g., ProductName, ProductSize, ProductPrice, etc.).
+3. **`fact_sales`**: Contains the measures (`OrderQuantity`, `Revenue`) and foreign keys (`CustomerKey`, `ProductKey`), plus the date columns (`OrderDate`, `StockDate`).
+
+#### Building Dimensions
 
 ```python
-# Check for primary key uniqueness
-if df_sensor['sensor_id'].nunique() != len(df_sensor):
-    print("Warning: Duplicate sensor_id values found in sensor data!")
-else:
-    print("All sensor_id values are unique in sensor data.")
-
-if df_accident['accident_id'].nunique() != len(df_accident):
-    print("Warning: Duplicate accident_id values found in accident data!")
-else:
-    print("All accident_id values are unique in accident data.")
-
-# Check for missing values
-print("Missing values in sensor data:")
-print(df_sensor.isnull().sum())
-
-print("\nMissing values in accident data:")
-print(df_accident.isnull().sum())
-
-# Drop rows with missing data
-df_sensor.dropna(inplace=True)
-df_accident.dropna(inplace=True)
+dim_customer = customers_df.drop_duplicates(subset=['CustomerKey']).copy()
+dim_product = products_df.drop_duplicates(subset=['ProductKey']).copy()
 ```
 
-Additionally, I converted the `date_time` columns into datetime objects to facilitate further time-based transformations.
-
----
-
-## 3. Data Transformation: Creating Dimension and Fact Tables
-
-Following data cleaning, I transformed the raw data into a structured star schema by creating dimension tables and fact tables.
-
-### 3.1 Creating Dimension Tables
-
-I built the following dimension tables:
-
-- **dim_time:**  
-  I combined unique `date_time` values from both datasets, extracted additional attributes (year, month, day, hour, day_of_week), and created a surrogate key `time_id`.
-
-  **Python Code Snippet:**
-  ```python
-  all_times = pd.concat([df_sensor[['date_time']], df_accident[['date_time']]])
-  all_times = all_times.drop_duplicates().reset_index(drop=True)
-  
-  all_times['year'] = all_times['date_time'].dt.year
-  all_times['month'] = all_times['date_time'].dt.month
-  all_times['day'] = all_times['date_time'].dt.day
-  all_times['hour'] = all_times['date_time'].dt.hour
-  all_times['day_of_week'] = all_times['date_time'].dt.dayofweek
-  
-  all_times.reset_index(inplace=True)
-  all_times.rename(columns={'index': 'time_id'}, inplace=True)
-  all_times['time_id'] = all_times['time_id'] + 1
-  
-  dim_time = all_times[['time_id', 'date_time', 'year', 'month', 'day', 'hour', 'day_of_week']]
-  ```
-
-- **dim_location:**  
-  I consolidated unique locations from both datasets and assigned a surrogate key `location_id`.
-
-  **Python Code Snippet:**
-  ```python
-  locations_sensor = df_sensor[['location']].drop_duplicates()
-  locations_accident = df_accident[['location']].drop_duplicates()
-  all_locations = pd.concat([locations_sensor, locations_accident]).drop_duplicates().reset_index(drop=True)
-  
-  all_locations.reset_index(inplace=True)
-  all_locations.rename(columns={'index': 'location_id'}, inplace=True)
-  all_locations['location_id'] = all_locations['location_id'] + 1
-  
-  dim_location = all_locations[['location_id', 'location']]
-  ```
-
-- **Additional Dimensions (for Accident Data):**  
-  I created separate dimensions for `vehicle_type`, `weather_condition`, and `road_condition` with their own surrogate keys (`vehicle_id`, `weather_id`, and `road_id` respectively).
-
-  **Python Code Snippet:**
-  ```python
-  # Vehicle Dimension
-  dim_vehicle = df_accident[['vehicle_type']].drop_duplicates().reset_index(drop=True)
-  dim_vehicle.reset_index(inplace=True)
-  dim_vehicle.rename(columns={'index': 'vehicle_id'}, inplace=True)
-  dim_vehicle['vehicle_id'] = dim_vehicle['vehicle_id'] + 1
-  dim_vehicle = dim_vehicle[['vehicle_id', 'vehicle_type']]
-
-  # Weather Dimension
-  dim_weather = df_accident[['weather_condition']].drop_duplicates().reset_index(drop=True)
-  dim_weather.reset_index(inplace=True)
-  dim_weather.rename(columns={'index': 'weather_id'}, inplace=True)
-  dim_weather['weather_id'] = dim_weather['weather_id'] + 1
-  dim_weather = dim_weather[['weather_id', 'weather_condition']]
-
-  # Road Condition Dimension
-  dim_road = df_accident[['road_condition']].drop_duplicates().reset_index(drop=True)
-  dim_road.reset_index(inplace=True)
-  dim_road.rename(columns={'index': 'road_id'}, inplace=True)
-  dim_road['road_id'] = dim_road['road_id'] + 1
-  dim_road = dim_road[['road_id', 'road_condition']]
-  ```
-
-### 3.2 Creating Fact Tables
-
-Next, I built the fact tables by merging the cleaned data with the respective dimensions:
-- **fact_traffic:**  
-  This fact table includes the key measures from sensor data along with foreign keys linking to `dim_time` and `dim_location`.
-
-  **Python Code Snippet:**
-  ```python
-  # Merge with dim_time and rename to fk_time_id
-  fact_traffic = df_sensor.merge(dim_time[['time_id', 'date_time']], on='date_time', how='left')
-  fact_traffic.rename(columns={'time_id': 'fk_time_id'}, inplace=True)
-  
-  # Merge with dim_location and rename to fk_location_id
-  fact_traffic = fact_traffic.merge(dim_location, on='location', how='left')
-  fact_traffic.rename(columns={'location_id': 'fk_location_id'}, inplace=True)
-  
-  # Select only the necessary columns
-  fact_traffic = fact_traffic[['sensor_id', 'fk_time_id', 'fk_location_id',
-                               'vehicle_count', 'average_speed', 'congestion_level']]
-  ```
-
-- **fact_accident:**  
-  This fact table holds accident-specific measures and references dimensions including `dim_time`, `dim_location`, `dim_vehicle`, `dim_weather`, and `dim_road`.
-
-  **Python Code Snippet:**
-  ```python
-  # Merge with dim_time and rename to fk_time_id
-  fact_accident = df_accident.merge(dim_time[['time_id', 'date_time']], on='date_time', how='left')
-  fact_accident.rename(columns={'time_id': 'fk_time_id'}, inplace=True)
-  
-  # Merge with dim_location and rename to fk_location_id
-  fact_accident = fact_accident.merge(dim_location, on='location', how='left')
-  fact_accident.rename(columns={'location_id': 'fk_location_id'}, inplace=True)
-  
-  # Merge with additional dimensions
-  fact_accident = fact_accident.merge(dim_vehicle.rename(columns={'vehicle_id': 'fk_vehicle_id'}),
-                                      on='vehicle_type', how='left')
-  fact_accident = fact_accident.merge(dim_weather.rename(columns={'weather_id': 'fk_weather_id'}),
-                                      on='weather_condition', how='left')
-  fact_accident = fact_accident.merge(dim_road.rename(columns={'road_id': 'fk_road_id'}),
-                                      on='road_condition', how='left')
-  
-  # Select only the necessary columns
-  fact_accident = fact_accident[['accident_id', 'fk_time_id', 'fk_location_id',
-                                 'fk_vehicle_id', 'fk_weather_id', 'fk_road_id',
-                                 'accident_severity', 'number_of_vehicles', 'casualties',
-                                 'traffic_density']]
-  ```
-
----
-
-## 4. Loading Transformed Data to MySQL
-
-After the ETL process, I loaded the dimension and fact tables into a MySQL database using SQLAlchemy. I configured the connection parameters and used the `to_sql()` method with `if_exists='replace'` to update the tables.
-
-**Python Code Snippet:**
+#### Building the Fact Table
 
 ```python
-from sqlalchemy import create_engine
+fact_sales = sales_df.merge(
+    dim_customer[['CustomerKey']], on='CustomerKey', how='left'
+).merge(
+    dim_product[['ProductKey']], on='ProductKey', how='left'
+)
 
-# MySQL connection parameters
+fact_sales = fact_sales[[
+    'CompositeKey',
+    'CustomerKey',
+    'ProductKey',
+    'OrderDate',
+    'StockDate',
+    'OrderQuantity',
+    'ProductPrice',
+    'Revenue'
+]]
+```
+
+### 4. Loading Data to MySQL
+I used **SQLAlchemy** to connect and write the tables to MySQL:
+
+```python
 username = 'root'
 password = '12345'
 host = 'localhost'
 port = '3306'
-database = 'case6'
-
-# Create the SQLAlchemy engine
+database = 'case5'
 engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}')
 
-# Load tables into MySQL
-dim_time.to_sql('dim_time', con=engine, index=False, if_exists='replace')
-dim_location.to_sql('dim_location', con=engine, index=False, if_exists='replace')
-dim_vehicle.to_sql('dim_vehicle', con=engine, index=False, if_exists='replace')
-dim_weather.to_sql('dim_weather', con=engine, index=False, if_exists='replace')
-dim_road.to_sql('dim_road', con=engine, index=False, if_exists='replace')
-fact_traffic.to_sql('fact_traffic', con=engine, index=False, if_exists='replace')
-fact_accident.to_sql('fact_accident', con=engine, index=False, if_exists='replace')
+dim_customer.to_sql('dim_customer', engine, index=False, if_exists='replace')
+dim_product.to_sql('dim_product', engine, index=False, if_exists='replace')
+fact_sales.to_sql('fact_sales', engine, index=False, if_exists='replace')
 
-print("\nAll tables have been loaded successfully into MySQL!")
+print("Data loaded to MySQL successfully!")
 ```
 
----
+At this point, I had **three tables** in MySQL:  
+- **`dim_customer`**  
+- **`dim_product`**  
+- **`fact_sales`**
 
-## 5. SQL Queries for Insights
+### 5. SQL Queries for Analysis
 
-Once the data is loaded into MySQL, I executed several SQL queries to derive insights such as traffic congestion levels, accident-prone areas, and peak hour analysis. Below is the complete SQL script with one-line comments explaining each query:
+Once the data was in MySQL, I ran the following queries to address typical business questions:
 
 ```sql
-USE case6;
+USE case5;
 
--- 1. Show traffic congestion by location and time
-SELECT
-    dl.location,
-    dt.date_time,
-    ft.congestion_level,
-    ft.vehicle_count,
-    ft.average_speed
-FROM fact_traffic AS ft
-JOIN dim_time AS dt 
-    ON ft.fk_time_id = dt.time_id
-JOIN dim_location AS dl
-    ON ft.fk_location_id = dl.location_id
-ORDER BY dt.date_time;
-
--- 2. Show top 10 accident-prone areas
-SELECT
-    dl.location,
-    COUNT(*) AS total_accidents
-FROM fact_accident AS fa
-JOIN dim_location AS dl
-    ON fa.fk_location_id = dl.location_id
-GROUP BY dl.location
-ORDER BY total_accidents DESC
-LIMIT 10;
-
--- Example: Top locations with the highest count of 'Fatal' accidents
+-- Top 10 products by total revenue
 SELECT 
-    dl.location,
-    COUNT(*) AS fatal_accidents
-FROM fact_accident AS fa
-JOIN dim_location AS dl
-    ON fa.fk_location_id = dl.location_id
-WHERE fa.accident_severity = 'Fatal'
-GROUP BY dl.location
-ORDER BY fatal_accidents DESC
+    p.ProductKey,
+    p.ProductName,
+    SUM(f.Revenue) AS TotalRevenue
+FROM fact_sales AS f
+JOIN dim_product AS p 
+    ON f.ProductKey = p.ProductKey
+GROUP BY p.ProductKey, p.ProductName
+ORDER BY TotalRevenue DESC
 LIMIT 10;
 
--- 3. Peak hour analysis for accidents
-SELECT
-    dt.hour,
-    COUNT(*) AS total_accidents
-FROM fact_accident AS fa
-JOIN dim_time AS dt
-    ON fa.fk_time_id = dt.time_id
-GROUP BY dt.hour
-ORDER BY total_accidents DESC;
+-- Bottom 5 product subcategories by total revenue
+SELECT 
+    p.ProductSubcategoryKey,
+    SUM(f.Revenue) AS SubcategoryRevenue
+FROM fact_sales AS f
+JOIN dim_product AS p 
+    ON f.ProductKey = p.ProductKey
+GROUP BY p.ProductSubcategoryKey
+ORDER BY SubcategoryRevenue ASC
+LIMIT 5;
 
--- 4. Peak Hour for Traffic Volume
-SELECT
-    dt.hour,
-    SUM(ft.vehicle_count) AS total_vehicles
-FROM fact_traffic AS ft
-JOIN dim_time AS dt
-    ON ft.fk_time_id = dt.time_id
-GROUP BY dt.hour
-ORDER BY total_vehicles DESC;
-
--- 5. Average speed by hour
-SELECT
-    dt.hour,
-    AVG(ft.average_speed) AS avg_speed
-FROM fact_traffic AS ft
-JOIN dim_time AS dt
-    ON ft.fk_time_id = dt.time_id
-GROUP BY dt.hour
-ORDER BY avg_speed;
+-- Customer Segmentation (High-Value, Frequent, Occasional)
+WITH customer_summary AS (
+    SELECT 
+        c.CustomerKey,
+        COUNT(DISTINCT f.CompositeKey) AS total_orders,
+        SUM(f.Revenue) AS total_spent
+    FROM fact_sales AS f
+    JOIN dim_customer AS c 
+        ON f.CustomerKey = c.CustomerKey
+    GROUP BY c.CustomerKey
+)
+SELECT 
+    CustomerKey,
+    total_orders,
+    total_spent,
+    CASE
+        WHEN total_spent >= 1000 THEN 'High-Value'
+        WHEN total_orders >= 10 THEN 'Frequent Buyer'
+        WHEN total_orders BETWEEN 2 AND 9 THEN 'Occasional Buyer'
+        ELSE 'Rare Buyer'
+    END AS Segment
+FROM customer_summary
+ORDER BY total_spent DESC;
 ```
 
-These queries enable me to analyze:
-- **Traffic Congestion:** Trends by time and location.
-- **Accident-Prone Areas:** Which locations experience the highest number of accidents, including fatal incidents.
-- **Peak Hour Analysis:** Both for accident occurrence and traffic volume, as well as average speed trends.
+**Interpretation**:
+- The first query highlights the **top 10 products** by total revenue.  
+- The second query shows the **lowest-performing subcategories**.  
+- The third query **classifies customers** based on total spending and number of orders.
 
----
+### 6. Predictive Modeling
 
-## 6. KPI Tracking & Monitoring Results
+#### 6.1 Forecast Future Sales with Prophet
+I aggregated daily revenue from `fact_sales` and fit a **Prophet** model:
 
-<!-- 
-This section is reserved for KPI Tracking & Monitoring results.
-I will update this section with detailed insights and dashboards once the analysis is completed and the KPIs are established.
--->
+```python
+import matplotlib.pyplot as plt
+from prophet import Prophet
 
----
+sales_trends = fact_sales.groupby('OrderDate')['Revenue'].sum().reset_index()
+sales_trends.columns = ['ds', 'y']  # Prophet requires ds, y
 
-# Conclusion
+model = Prophet()
+model.fit(sales_trends)
 
-In this project, I built an end-to-end ETL pipeline using Python and Pandas to load, clean, and transform traffic and accident data. I then created a star schema with dimension tables (including a dedicated `dim_time`) and fact tables, and loaded the transformed data into a MySQL database. Finally, I executed SQL queries to derive actionable insights such as traffic congestion levels, accident-prone areas, and peak hour analysis.
+future = model.make_future_dataframe(periods=90)
+forecast = model.predict(future)
 
-This structured approach not only ensures high-quality data but also lays a strong foundation for real-time monitoring and decision-making using visualization tools like Power BI or Tableau. The project demonstrates my ability to integrate multiple technologies to build a comprehensive analytics solution for smart city traffic management.
+model.plot(forecast)
+plt.title("Forecast of Future Sales Revenue")
+plt.xlabel("Date")
+plt.ylabel("Revenue")
+plt.show()
+```
 
+Prophet produced a forecast line (blue) and confidence intervals (shaded region) for the next 90 days. This helps me anticipate **future revenue trends** and manage inventory.
+
+#### 6.2 Predict Customer Lifetime Value (CLV)
+Using the **lifetimes** library, I applied the **BG/NBD** and **Gamma-Gamma** models:
+
+```python
+from lifetimes.utils import summary_data_from_transaction_data
+from lifetimes import BetaGeoFitter, GammaGammaFitter
+
+summary = summary_data_from_transaction_data(
+    transactions=fact_sales,
+    customer_id_col='CustomerKey',
+    datetime_col='OrderDate',
+    monetary_value_col='Revenue',
+    observation_period_end=fact_sales['OrderDate'].max()
+)
+
+# Filter out customers with frequency 0
+summary_filtered = summary[summary['frequency'] > 0]
+
+# BG/NBD model
+bgf = BetaGeoFitter(penalizer_coef=0.0)
+bgf.fit(summary_filtered['frequency'], summary_filtered['recency'], summary_filtered['T'])
+
+summary_filtered['predicted_purchases_90'] = bgf.\
+    conditional_expected_number_of_purchases_up_to_time(
+        90,
+        summary_filtered['frequency'],
+        summary_filtered['recency'],
+        summary_filtered['T']
+    )
+
+# Gamma-Gamma for monetary value
+ggf = GammaGammaFitter(penalizer_coef=0.0)
+ggf.fit(summary_filtered['frequency'], summary_filtered['monetary_value'])
+
+summary_filtered['expected_average_profit'] = ggf.\
+    conditional_expected_average_profit(
+        summary_filtered['frequency'],
+        summary_filtered['monetary_value']
+    )
+
+# CLV over 12 months
+summary_filtered['CLV'] = ggf.customer_lifetime_value(
+    bgf,
+    summary_filtered['frequency'],
+    summary_filtered['recency'],
+    summary_filtered['T'],
+    summary_filtered['monetary_value'],
+    time=12,
+    freq='D',
+    discount_rate=0.01
+)
+
+print(summary_filtered[['predicted_purchases_90', 'expected_average_profit', 'CLV']].head())
+```
+
+**Interpretation**:
+- **`predicted_purchases_90`**: The expected number of purchases in the next 90 days.  
+- **`expected_average_profit`**: The average revenue (profit) per transaction.  
+- **`CLV`**: The total present value of expected future revenue from each customer over a 12-month horizon.
+
+### 7. [KPI Tracking & Monitoring Results]
+*(Space left intentionally for me to include final KPI metrics, dashboards, or additional insights once I refine the forecast and CLV results. I can incorporate these into a BI tool or a summary table in my final presentation.)*
+
+### Conclusion
+I successfully **extracted** and **transformed** the CSV data, built **fact** and **dimension** tables, and loaded them into MySQL. I then **queried** the data to find top-selling products, low-performing subcategories, and segmented customers by total orders and spending. Lastly, I applied **predictive modeling** to **forecast** future revenue trends and **estimate** Customer Lifetime Value for each customer.
+
+This project addresses the main objectives of analyzing sales trends, identifying customer segments, and predicting future revenue. By combining **SQL** for structured queries, **Python** for data cleaning and modeling, and the **MySQL** database for storage, I created a robust end-to-end pipeline for **Sales & Revenue Analysis**.
