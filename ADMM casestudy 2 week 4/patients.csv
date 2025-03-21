@@ -1,0 +1,11 @@
+patient_id,first_name,last_name,dob,gender,contact_no,address,chronic_conditions
+101,Sherry,Pace,1990-06-29,Female,7404709215,654 Main St,Asthma
+102,Kristen,Tellez,1988-11-25,Male,9257713899,519 Main St,None
+103,Bonnie,Haith,1982-06-20,Male,8247281536,828 Main St,Heart Disease
+104,Charles,Mccray,1969-07-31,Female,3720798249,590 Main St,Hypertension
+105,Alice,Lee,1991-03-23,Female,6291350848,405 Main St,Asthma
+106,Vanessa,Termini,1981-02-01,Male,7829734415,918 Main St,Heart Disease
+107,Harry,Reyes,1962-09-13,Female,2030017075,646 Main St,None
+108,Dorothy,Costa,1998-03-06,Male,7000603141,937 Main St,Heart Disease
+109,Kyle,Naber,1983-12-12,Female,7203338054,490 Main St,None
+110,Anna,Tullius,1954-08-25,Male,6975100855,814 Main St,None

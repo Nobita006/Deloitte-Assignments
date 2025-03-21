@@ -1,0 +1,11 @@
+admission_id,patient_id,admission_date,discharge_date,diagnosis,doctor_id,room_no
+2001,107,2025-10-09,2025-10-19,Hypertension,301,A101
+2002,110,2024-06-28,2024-06-29,Kidney Stones,310,B210
+2003,105,2024-05-30,,Diabetes Complications,306,A102
+2004,107,2024-01-14,2024-01-16,COVID-19,302,D120
+2005,102,2024-11-06,2024-11-09,Asthma Attack,304,B210
+2006,103,2024-06-28,,Heart Failure,308,D110
+2007,109,2025-06-16,2025-06-17,Heart Failure,306,A102
+2008,101,2025-03-10,2025-03-11,Hypertension,302,B210
+2009,104,2024-01-15,2024-01-23,Pneumonia,304,ICU1
+2010,102,2025-04-09,2025-04-15,Asthma Attack,310,D120

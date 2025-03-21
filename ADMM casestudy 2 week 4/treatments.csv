@@ -1,0 +1,11 @@
+treatment_id,admission_id,treatment_date,procedure,medication,dosage
+7001,2003,2024-06-01,Nebulization,Prednisone 10mg,1x daily
+7002,2010,2025-04-11,IV Fluid Therapy,Prednisone 10mg,3x daily
+7003,2009,2024-01-20,Vaccination,Metoprolol 50mg,1x daily
+7004,2010,2025-04-11,Blood Pressure Monitoring,Amoxicillin 500mg,1x daily
+7005,2005,2024-11-07,Physical Therapy,Amoxicillin 500mg,As needed
+7006,2007,2025-06-21,Blood Pressure Monitoring,Atorvastatin 20mg,2x daily
+7007,2007,2025-06-17,ECG,Metoprolol 50mg,As needed
+7008,2001,2025-10-12,X-Ray,Ibuprofen 400mg,As needed
+7009,2003,2024-05-30,Physical Therapy,Ibuprofen 400mg,3x daily
+7010,2009,2024-01-17,MRI Scan,Acetaminophen 500mg,2x daily
